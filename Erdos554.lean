@@ -63,7 +63,10 @@ theorem base_ratio_tendsto_zero {a c r s : ℝ} (hc : 0 < c) (hrs : r < s) :
     have hps := (Real.rpow_pos_of_pos (lt_trans zero_lt_one hx) s).ne'
     have hl := (Real.log_pos hx).ne'
     field_simp [hc.ne', hpr, hps, hl] <;> ring
-  exact (h.const_mul (a / c)).congr' heq.symm
+  have h' : Tendsto (fun k : ℕ => (a / c) *
+      (Real.log k / (k : ℝ) ^ (s - r))) atTop (𝓝 0) := by
+    simpa only [mul_zero, Function.comp_apply] using h.const_mul (a / c)
+  exact h'.congr' heq.symm
 
 theorem ratio_tendsto_zero_of_power_log_bounds
     (f g : ℕ → ℝ) {a c r s : ℝ} (ha : 0 ≤ a) (hc : 0 < c) (hrs : r < s)
