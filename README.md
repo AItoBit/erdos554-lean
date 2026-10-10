@@ -6,7 +6,8 @@ For fixed n >= 4 and c > 0, if nonnegative f(k) is eventually at most (4n)^k k^(
 
 The cycle Ramsey upper bound is from Axenovich, Cames van Batenburg, Janzer, Michel, and Rundström, https://arxiv.org/abs/2510.17981. The triangle lower-bound shape is recorded in https://github.com/openai/ten-proofs/blob/94bc0feb6a9ff12c7d31d6de640a725c9d43d2b6/MulticolorTriangleRamsey.lean. These results motivate the hypotheses; they are not imported or assumed as hidden axioms.
 
-Lean 4.33.1, Mathlib commit 0df444a360eaa60ab8c11dca51a86af692955474. Build with `lake exe cache get` followed by `lake --wfail build`. The source prints the axioms of all principal declarations. Verification is in progress.
+Lean 4.33.1, Mathlib commit 0df444a360eaa60ab8c11dca51a86af692955474. Build with `lake exe cache get` followed by `lake --wfail build`. The source prints the axioms of all principal declarations. The complete proof project passed the warning-free build and axiom audit in [CI run 38036442956](https://github.com/AItoBit/erdos554-lean/actions/runs/38036442956). All six principal declarations use only `propext`, `Classical.choice`, and `Quot.sound`. The verified source commit is `911121c29b7d4ddd90ec3856a821a9790ee3c7f8`.
 
 Verified554.lean reproduces the actual Formal Conjectures definitions and proves the exact conditional Ramsey-number specialization. The triangle and clique-free definitions are reused under Apache-2.0 from google-deepmind/formal-conjectures. No research theorem containing a placeholder is imported.
+
 
