@@ -1,0 +1,11 @@
+name = "erdos554-conditional-results"
+version = "0.1.0"
+defaultTargets = ["Erdos554"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4"
+rev = "0df444a360eaa60ab8c11dca51a86af692955474"
+
+[[lean_lib]]
+name = "Erdos554"
