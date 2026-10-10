@@ -1,6 +1,5 @@
 import Mathlib.Analysis.SpecialFunctions.Pow.Asymptotics
 import Mathlib.Tactic.FieldSimp
-import Mathlib.Tactic.Ring
 import Mathlib.Analysis.SpecificLimits.Basic
 import Mathlib.Tactic.NormNum
 
@@ -62,7 +61,7 @@ theorem base_ratio_tendsto_zero {a c r s : ℝ} (hc : 0 < c) (hrs : r < s) :
     have hpr := (Real.rpow_pos_of_pos (lt_trans zero_lt_one hx) r).ne'
     have hps := (Real.rpow_pos_of_pos (lt_trans zero_lt_one hx) s).ne'
     have hl := (Real.log_pos hx).ne'
-    field_simp [hc.ne', hpr, hps, hl] <;> ring
+    field_simp [hc.ne', hpr, hps, hl]
   have h' : Tendsto (fun k : ℕ => (a / c) *
       (Real.log k / (k : ℝ) ^ (s - r))) atTop (𝓝 0) := by
     simpa only [mul_zero, Function.comp_apply] using h.const_mul (a / c)
